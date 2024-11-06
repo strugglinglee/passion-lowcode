@@ -16,10 +16,24 @@ export default [
 
   ...pluginVue.configs['flat/essential'],
   ...vueTsEslintConfig(),
-  
   {
     ...pluginVitest.configs.recommended,
     files: ['src/**/__tests__/*'],
   },
   skipFormatting,
+  {
+    rules: {
+      'vue/no-v-model-argument': 'off',
+      'vue/no-multiple-template-root': 'off',
+      'vue/require-v-for-key': 'off',
+      'vue/valid-v-for': 'off',
+      'prettier/prettier': [
+        'warn',
+        {
+          htmlWhitespaceSensitivity: 'ignore',
+        },
+      ],
+      'vue/multi-word-component-names': 'off',
+    },
+  },
 ]
